@@ -13,14 +13,14 @@ cd bookscrape/bookscrape/spiders/ ejecutar -> scrapy genspider bookspyder books.
 dentro de spider -> pip install ipython
 
 ```
-En scrapy.sfg colocar:
+El entorno debe estar activo/En scrapy.sfg ejecutar:
 ```bash
 [settings]
 shell = ipython
 ```bash
 dentro de spider -> scrapy shell
 ```
-El entorno debe estar activo
+
 
 abrimos la url con:
 se debe cambiar ROBOTSTXT_OBEY = False en settings.py
@@ -33,3 +33,16 @@ books = response.css('article.product_pod')
 book = books[0]
 book.css('h3 a::text').get()
 
+ejecutar el spider:
+```bash
+scrapy crawl bookspyder
+```
+
+Sobrescribir el archivo:
+```bash
+scrapy crawl bookspider -O myscrapeddata.csv
+scrapy crawl bookspider -O myscrapeddata.json
+```
+
+response.css('div.product_main')
+response.css('h1::text').get()
